@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   resources :homes
-  get 'welcome/index'
-  get 'pricing' => 'sell#pricing'
 
+  # pricing_path
+  get 'pricing' => 'sell#pricing'
+  # root_path
   root 'welcome#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
