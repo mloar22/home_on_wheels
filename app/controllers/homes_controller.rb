@@ -1,30 +1,25 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
-
-  # GET /homes
-  # GET /homes.json
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
     @homes = Home.all
   end
 
-  # GET /homes/1
-  # GET /homes/1.json
+
   def show
   end
 
-  # GET /homes/new
+
   def new
-    @home = Home.new
+    @home = current_user.homes.build
   end
 
-  # GET /homes/1/edit
   def edit
   end
 
-  # POST /homes
-  # POST /homes.json
   def create
-    @home = Home.new(home_params)
+    @home = current_user.homes.build(home_params)
 
     respond_to do |format|
       if @home.save

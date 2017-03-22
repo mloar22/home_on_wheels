@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :homes
-
   # pricing_path
   get 'pricing' => 'sell#pricing'
   # root_path

@@ -10,12 +10,20 @@
   </head>
 
   <body>
+
     <div class="container">
       <%= link_to "Landing", root_path %>
       <%= link_to "Buy", homes_path %>
       <%= link_to "sell", pricing_path %>
+      <%= link_to "Sign in", new_user_session_path %>
+      <%= link_to "Sign up", new_user_registration_path %>
 
-    <%= yield %>
+
+
+        <% flash.each do |name, msg| %>
+          <%= content_tag(:div, msg, class: "alert alert-info") %>
+        <% end %>
+            <%= yield %>
     </div>
   </body>
 </html>
