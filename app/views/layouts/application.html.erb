@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>HomeOnWheels</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= csrf_meta_tags %>
+    <head>
+        <title>HomeOnWheels</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
+    <body>
+        <%= render 'layouts/header' %>
+        <div class="container">
+            <% flash.each do |name, msg| %>
+              <%= content_tag(:div, msg, class: "alert alert-info") %>
+            <% end %>
 
-    <div class="container">
-      <%= link_to "Landing", root_path %>
-      <%= link_to "Buy", homes_path %>
-      <%= link_to "sell", pricing_path %>
-      <%= link_to "Sign in", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-
-
-
-        <% flash.each do |name, msg| %>
-          <%= content_tag(:div, msg, class: "alert alert-info") %>
-        <% end %>
             <%= yield %>
-    </div>
-  </body>
+        </div>
+    </body>
 </html>
