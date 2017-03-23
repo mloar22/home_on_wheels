@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  
+
   def index
     @homes = Home.all
   end
@@ -64,6 +64,6 @@ class HomesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_params
-      params.require(:home).permit(:category, :make, :model, :year, :price, :milage, :description)
+      params.require(:home).permit(:category, :make, :model, :year, :price, :milage, :description, :image)
     end
 end

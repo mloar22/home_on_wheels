@@ -19,6 +19,7 @@
   <tbody>
     <% @homes.each do |home| %>
       <tr>
+        <td><%= image_tag home.image.url(:thumb)%></td>
         <td><%= home.category %></td>
         <td><%= home.make %></td>
         <td><%= home.model %></td>
