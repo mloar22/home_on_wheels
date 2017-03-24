@@ -17,7 +17,7 @@ class HomesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create home" do
     assert_difference('Home.count') do
-      post homes_url, params: { home: { category: @home.category, description: @home.description, make: @home.make, milage: @home.milage, model: @home.model, price: @home.price, year: @home.year } }
+      post homes_url, params: { home: { category: @home.category, description: @home.description, make: @home.make, milage: @home.milage, model: @home.model, price: @home.price, year: @home.year, image: @home.image} }
     end
 
     assert_redirected_to home_url(Home.last)
@@ -34,7 +34,7 @@ class HomesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update home" do
-    patch home_url(@home), params: { home: { category: @home.category, description: @home.description, make: @home.make, milage: @home.milage, model: @home.model, price: @home.price, year: @home.year } }
+    patch home_url(@home), params: { home: { category: @home.category, description: @home.description, make: @home.make, milage: @home.milage, model: @home.model, price: @home.price, year: @home.year, image: @home.image} }
     assert_redirected_to home_url(@home)
   end
 

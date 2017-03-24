@@ -1,18 +1,27 @@
-<div class="site-wrapper">
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <div class="inner cover">
-        <h1 class="cover-heading">Welcome to Your Home on Wheels.</h1>
-        <p class="lead">
-            <button type="button" class="btn btn-lg btn-default"><%= link_to "Buy", homes_path %></button>
-            <button type="button" class="btn btn-lg btn-default"><%= link_to "Sell", pricing_path %></button>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HomeOnWheels</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= csrf_meta_tags %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+    <body class="full">
+        <div class="container">
+            <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: "alert alert-info") %>
+            <% end %>
+             <div  class="banner">
+            <h1 class="cover-heading">Welcome to Your Home on Wheels</h1>
+            <p class="lead">
+                <button type="button" class="btn btn-lg btn-default"><%= link_to "Buy", homes_path %></button>
+                <button type="button" class="btn btn-lg btn-default"><%= link_to "Sell", pricing_path %></button>
             </button>
         </p>
-      </div>
-      <div class="mastfoot">
-        <!-- <div class="inner">
-          <p>A Web Production by <a href="http://mitchloar.com">MitchLoar</a></p>
-        </div> -->
-      </div>
     </div>
-  </div>
+    </div>
+</body>
+</html>
